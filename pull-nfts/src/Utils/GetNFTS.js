@@ -8,7 +8,7 @@ import axios from 'axios';
 
 export const GetNFTS = (props) => {
     const { connection } = useConnection();
-    const { publicKey, sendTransaction } = useWallet();
+    const { publicKey } = useWallet();
 
     const [nftData, setNftData] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -42,7 +42,7 @@ export const GetNFTS = (props) => {
     
     useEffect(() => {
         async function data() {
-            let res = await getAllNftData();
+            let res = await getNftTokenData();
             setNftData(res);
             setLoading(true)
         }
