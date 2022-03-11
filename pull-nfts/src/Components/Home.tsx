@@ -44,6 +44,7 @@ const Home = () => {
                             </Button>
                         </Grid>
                     </Grid>
+                    <hr></hr>
                     <Grid container spacing={4}>
                         <Grid item xs>
                             {state === 'start' && (

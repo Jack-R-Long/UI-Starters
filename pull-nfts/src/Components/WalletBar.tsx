@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { AppBar, Typography, Toolbar } from '@mui/material';
+import { AppBar, Typography, Toolbar, Link } from '@mui/material';
 import { WalletMultiButton } from "@solana/wallet-adapter-material-ui"
 
 
@@ -10,16 +10,16 @@ export default function WalletBar() {
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         Icon Here
                     </Typography>
-                    <a href="#"  target="_blank">
+                    <Link href="#"  target="_blank">
                         <Typography variant="h6" marginLeft={4} marginRight={4}> 
                             Link
                         </Typography>
-                    </a>
-                    <a href="#" target="_blank">
+                    </Link>
+                    <Link href="#" target="_blank">
                         <Typography variant="h6" marginLeft={4} marginRight={4}> 
                             Link
                         </Typography>
-                    </a>
+                    </Link>
                     <WalletMultiButton></WalletMultiButton>
                 </Toolbar>
             </AppBar>
