@@ -13,7 +13,7 @@ const Home = () => {
     return (
         <>
         <CssBaseline />
-        <Grid  id="whole-app"  style={{ position: "relative", height: "80vh" }}>
+        <Grid id="whole-app"  style={{ position: "relative", height: "80vh" }}>
             <Grid 
                 id="appbar"
                 style={{ position: "sticky", top: 0, left: 0, right: 0 }}
@@ -22,16 +22,8 @@ const Home = () => {
             </Grid>
             <main>
                 <div>
-                    <Grid
-                        id="main"
-                        container
-                        justifyContent="flex-start"
-                        alignItems="baseline"
-                        spacing={8}
-                        style={{ height: "inherit"}}
-                    >
-
-                        <Grid item xs={6}>
+                    <Grid container spacing={4} style={{ height: "inherit"}}>
+                        <Grid item xs>
                             <Button 
                                 size="large" 
                                 variant="contained"
@@ -41,7 +33,7 @@ const Home = () => {
                                 >Transactions
                             </Button>
                         </Grid>
-                        <Grid item xs={6}>
+                        <Grid item xs>
                             <Button 
                                 size="large" 
                                 variant="contained"
@@ -51,15 +43,17 @@ const Home = () => {
                                 >Show NFTs
                             </Button>
                         </Grid>
-                        <Grid item xs={12}>
+                    </Grid>
+                    <Grid container spacing={4}>
+                        <Grid item xs>
                             {state === 'start' && (
-                                    <SendOneLamportToRandomAddress/>
-                                    )}
+                                <SendOneLamportToRandomAddress/>
+                                )}
                             {state === 'show-table' && (
                                 <GetNFTS></GetNFTS>                                     
-                            )}
+                                )}
                         </Grid>
-                    </Grid>                            
+                    </Grid>
                 </div>
 
             </main>
@@ -72,7 +66,7 @@ const Home = () => {
                     align="center"
                     color="text.secondary"
                     component="p"
-                >
+                    >
                     Something here to give the footer a purpose!
                 </Typography>
                 <Copyright />
