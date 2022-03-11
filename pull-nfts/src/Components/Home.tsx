@@ -4,7 +4,8 @@ import { Typography, AppBar, Paper, Button, Grid, Box, CssBaseline, Toolbar } fr
 import CustomizedTables from './CustomizedTables'
 import Copyright from "./Copyright"
 import WalletBar from "./WalletBar"
-
+import { SendOneLamportToRandomAddress } from "../Utils/SendLamports"
+import GetNFTS from "../Utils/GetNFTS.js"
 
 const Home = () => {
     const [state, setState] = useState('start')
@@ -19,26 +20,28 @@ const Home = () => {
                 >
                 <WalletBar/>
             </Grid>
-            <Grid
-                id="main"
-                container
-                justifyContent="center"
-                style={{ height: "inherit"}}
-            >
             <main>
                 <div>
-                    <Grid container spacing={6} justifyContent="center">
-                        <Grid item>
+                    <Grid
+                        id="main"
+                        container
+                        justifyContent="flex-start"
+                        alignItems="baseline"
+                        spacing={8}
+                        style={{ height: "inherit"}}
+                    >
+
+                        <Grid item xs={6}>
                             <Button 
                                 size="large" 
                                 variant="contained"
                                 onClick={() => {
                                     setState('start')
                                 }}
-                                >Send a lamport
+                                >Transactions
                             </Button>
                         </Grid>
-                        <Grid item>
+                        <Grid item xs={6}>
                             <Button 
                                 size="large" 
                                 variant="contained"
@@ -48,32 +51,14 @@ const Home = () => {
                                 >Show NFTs
                             </Button>
                         </Grid>
-                        {state === 'start' && (
-                            <Grid item xs={12}>
-                                    {/* <img src={tiers}></img> */}
-                                    <Paper elevation={3} variant="outlined"> 
-                                        <Typography align="center" color="textPrimary"> Staking V2</Typography>
-                                        <Typography align="center" color="textPrimary"> Staking V2</Typography>
-                                        <Typography align="center" color="textPrimary"> Staking V2</Typography>
-                                        <Typography align="center" color="textPrimary"> Staking V2</Typography>
-                                        <Typography align="center" color="textPrimary"> Staking V2</Typography>
-                                        <Typography align="center" color="textPrimary"> Staking V2</Typography>
-                                        <Typography align="center" color="textPrimary"> Staking V2</Typography>
-                                        
-                                    </Paper>
-                            </Grid>
-                        )}
-                        {state === 'show-table' && (
-                            <Grid item xs={12}>
-                                <Button
-                                    size="large" 
-                                    variant="contained"
-                                >
-                                    Show Apes
-                                </Button>                                     
-                                {/* <CustomizedTables></CustomizedTables> */}
-                            </Grid>
-                        )}
+                        <Grid item xs={12}>
+                            {state === 'start' && (
+                                    <SendOneLamportToRandomAddress/>
+                                    )}
+                            {state === 'show-table' && (
+                                <GetNFTS></GetNFTS>                                     
+                            )}
+                        </Grid>
                     </Grid>                            
                 </div>
 
@@ -94,9 +79,7 @@ const Home = () => {
             </Box>
             {/* End footer */}
         </Grid>
-    </Grid>
-
-</>
+        </>
 
     );
 }
