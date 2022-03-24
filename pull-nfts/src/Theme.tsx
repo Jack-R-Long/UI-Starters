@@ -17,7 +17,7 @@ const theme = createTheme({
         MuiButtonBase: {
             styleOverrides: {
                 root: {
-                    justifyContent: 'flex-start',
+                    justifyContent: 'center',
                 },
             },
         },

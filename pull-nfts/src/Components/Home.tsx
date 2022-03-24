@@ -6,6 +6,7 @@ import Copyright from "./Copyright"
 import WalletBar from "./WalletBar"
 import { SendOneLamportToRandomAddress } from "../Utils/SendLamports"
 import GetNFTS from "../Utils/GetNFTS.js"
+import { NftTable } from "./NftTable"
 
 const Home = () => {
     const [state, setState] = useState('start')
@@ -13,7 +14,12 @@ const Home = () => {
     return (
         <>
         <CssBaseline />
-        <Grid id="whole-app"  style={{ position: "relative", height: "80vh" }}>
+        <Grid 
+            container
+            id="whole-app"
+            direction="row"
+            justifyContent="center"
+            style={{ height: "80vh" }}>
             <Grid 
                 id="appbar"
                 style={{ position: "sticky", top: 0, left: 0, right: 0 }}
@@ -22,7 +28,12 @@ const Home = () => {
             </Grid>
             <main>
                 <div>
-                    <Grid container spacing={4} style={{ height: "inherit"}}>
+                    <Grid
+                        container
+                        direction="row"
+                        justifyContent="center"
+                        alignItems="center" 
+                    >
                         <Grid item xs>
                             <Button 
                                 size="large" 
@@ -30,7 +41,7 @@ const Home = () => {
                                 onClick={() => {
                                     setState('start')
                                 }}
-                                >Transactions
+                                >Table
                             </Button>
                         </Grid>
                         <Grid item xs>
@@ -40,7 +51,7 @@ const Home = () => {
                                 onClick={() => {
                                     setState('show-table')
                                 }}
-                                >Show NFTs
+                                >Cards
                             </Button>
                         </Grid>
                     </Grid>
@@ -48,7 +59,7 @@ const Home = () => {
                     <Grid container spacing={4}>
                         <Grid item xs>
                             {state === 'start' && (
-                                <SendOneLamportToRandomAddress/>
+                                <NftTable/>
                                 )}
                             {state === 'show-table' && (
                                 <GetNFTS></GetNFTS>                                     

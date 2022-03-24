@@ -8,7 +8,7 @@ export default function WalletBar() {
             <AppBar style={{background: 'transparent'}}>
                 <Toolbar>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        Icon Here
+                        Show Your NFTs
                     </Typography>
                     <Link href="#"  target="_blank">
                         <Typography variant="h6" marginLeft={4} marginRight={4}> 
